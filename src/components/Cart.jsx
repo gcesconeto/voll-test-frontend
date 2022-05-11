@@ -19,8 +19,8 @@ function Cart({cartList, removeFromCart}) {
         totalPrice: total,
         products: cartList,
       };
-      const { newSaleId } = await api.post("sale/create", newSale);
-      navigate(`/sale/${newSaleId}`);
+      await api.post("sale/create", newSale);
+      navigate("/sales");
     } catch (error) {
       console.log(error.response);
       }
@@ -34,6 +34,7 @@ function Cart({cartList, removeFromCart}) {
           <CartCard key={product.productId} product={product} removeFromCart={removeFromCart} />
           ))}
       </ul>
+      <span>{total}</span>
       <button type="button" onClick={handleSubmit}>
         Place order
       </button>

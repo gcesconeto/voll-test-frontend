@@ -1,10 +1,10 @@
 import UserList from "../components/UserList";
-import AdminHeader from "../components/AdminHeader";
+import Header from "../components/Header";
 
 function Users() {
   return (
     <main>
-      <AdminHeader title="Manage Users" />
+      <Header title="Manage Users" />
       <UserList />
     </main>
   );

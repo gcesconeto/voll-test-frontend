@@ -1,10 +1,10 @@
 import ProductForm from "../components/ProductForm";
-import AdminHeader from "../components/AdminHeader";
+import Header from "../components/Header";
 
 function NewProduct() {
   return (
     <main>
-      <AdminHeader title="Register new product" />
+      <Header title="Register new product" />
       <ProductForm />
     </main>
   );

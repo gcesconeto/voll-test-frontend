@@ -1,10 +1,10 @@
 import ProductList from "../components/ProductList";
-import UserHeader from "../components/UserHeader";
+import Header from "../components/Header";
 
 function Products() {
   return (
     <main>
-      <UserHeader title="Products" />
+      <Header title="Products" />
       <ProductList />
     </main>
   );
