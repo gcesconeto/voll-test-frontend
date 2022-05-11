@@ -43,16 +43,15 @@ function ProductForm() {
         value={name}
         onChange={handleName}
       />
-      <label htmlFor="price">Price</label>
+      <label htmlFor="price">Points</label>
       <input
-        placeholder="youremail@email.com"
         type="text"
         id="price"
         value={price}
         onChange={handlePrice}
       />
       <label htmlFor="description">Description</label>
-      <input
+      <textarea
         type="text"
         id="description"
         value={description}

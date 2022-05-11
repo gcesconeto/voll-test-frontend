@@ -48,9 +48,9 @@ function UserCard({ user }) {
       <button type="button" onClick={handleAdjust}>
         Adjust
       </button>
-      <button type="button" onClick={handleDelete}>
-        Delete User
-      </button>
+      { role === "admin" ? null : 
+      <button type="button" onClick={handleDelete}>Delete</button>
+      }
     </li>
   );
 }

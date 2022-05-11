@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import Cart from "./Cart";
 import api from "../services/api";
+import "../styles/List.scss";
 
 function ProductList() {
   const [productList, setProductList] = useState([]);
@@ -33,11 +34,11 @@ function ProductList() {
   }
 
   return (
-    <div>
+    <section className="table">
       <ul>
         <li>
           <span>Name</span>
-          <span>Price</span>
+          <span>Points</span>
           <span>Description</span>
           <span> </span>
           <span>Quantity</span>
@@ -47,7 +48,7 @@ function ProductList() {
           ))}
       </ul>
       {cartList.length === 0 ? null : <Cart removeFromCart={removeFromCart} cartList={cartList} />}
-    </div>
+    </section>
   );
 }
 

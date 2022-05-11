@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/Auth";
 import api from "../services/api";
 
@@ -30,13 +30,14 @@ function LoginForm() {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h1>Login</h1>
       <label htmlFor="email">Email</label>
       <input
         type="email"
         id="email"
         required
-        placeholder="seu.email@gmail.com"
+        placeholder="youremail@email.com"
         value={email}
         onChange={handleEmail}
       />
@@ -45,12 +46,15 @@ function LoginForm() {
         type="password"
         id="password"
         required
-        placeholder="senha123"
+        placeholder="password"
         value={password}
         onChange={handlePassword}
       />
       <p>{errorMessage}</p>
       <button type="submit">Log in</button>
+      <button type="button">
+        <Link to="/register">Register</Link>
+      </button>
     </form>
   );
 }

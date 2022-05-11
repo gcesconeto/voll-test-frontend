@@ -10,7 +10,7 @@ import Users from "./pages/Users";
 import Sales from "./pages/Sales";
 import SaleDetails from "./pages/SaleDetails";
 import { AuthProvider } from "./context/Auth";
-import "./App.css";
+import "./styles/App.scss";
 
 function App() {
   return (

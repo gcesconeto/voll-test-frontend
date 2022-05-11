@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import SaleDetailsCard from "./SaleDetailsCard";
 import api from "../services/api";
+import "../styles/List.scss";
 
 function SaleDetailsList() {
   const [sale, setSale] = useState({ products: [], saleDate: ''});
@@ -19,16 +20,20 @@ function SaleDetailsList() {
   }, []);
   
   return (
-    <div>
-      <div>Sale Date: {sale.saleDate.split('T')[0]}</div>
-      <div>Total: {sale.totalPrice}</div>
+    <div className = "table">
+      <ul>
+        <li>
+          <span>{sale.saleDate.split('T')[0]}</span>
+          <span>Total: {sale.totalPrice}</span>
+        </li>
+      </ul>
       <h3>Products</h3>
       <ul>
         <li>
           <span>Name</span>
           <span>Quantity</span>
-          <span>Price</span>
-          <span>Total Price</span>
+          <span>Points</span>
+          <span>Total Points</span>
         </li>
         {sale.products.map((product) => (
           <SaleDetailsCard key={product.id} product={product} />

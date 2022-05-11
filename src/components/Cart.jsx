@@ -23,21 +23,33 @@ function Cart({cartList, removeFromCart}) {
       navigate("/sales");
     } catch (error) {
       console.log(error.response);
+      const { status } = error.response;
+      if (status === 401) global.alert("Insufficient points!");
       }
   });
   
   return (
     <div>
-      <h3>Cart</h3>
       <ul>
+        <li>
+          <span>Cart</span>
+          <span>Points</span>
+          <span>Quantity</span>
+        </li>
         {cartList.map((product) => (
           <CartCard key={product.productId} product={product} removeFromCart={removeFromCart} />
           ))}
+        <li>
+          <span>Order total:</span>
+          <span>{total}</span>
+          <span> </span>
+          <span>
+            <button type="button" onClick={handleSubmit}>
+              Place order
+            </button>
+          </span>
+        </li>
       </ul>
-      <span>{total}</span>
-      <button type="button" onClick={handleSubmit}>
-        Place order
-      </button>
     </div>
   );
 }

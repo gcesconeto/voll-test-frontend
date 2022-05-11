@@ -1,9 +1,10 @@
 import SaleDetailsList from "../components/SaleDetailsList";
 import Header from "../components/Header";
+import "../styles/Page.scss";
 
 function SaleDetails() {
   return (
-    <main>
+    <main className="page">
       <Header title="Order Details" />
       <SaleDetailsList />
     </main>

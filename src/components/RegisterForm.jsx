@@ -37,7 +37,8 @@ function RegisterForm() {
   });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h1>Create Account</h1>
       <label htmlFor="name">Full name</label>
       <input
         placeholder="Your full name here"
@@ -63,7 +64,7 @@ function RegisterForm() {
         value={password}
         onChange={handlePassword}
       />
-      <button type="submit">Finalizar Cadastro</button>
+      <button type="submit">Create</button>
     </form>
   );
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SaleCard from "./SaleCard";
 import api from "../services/api";
+import "../styles/List.scss";
 
 function UserList() {
   const [saleList, setSaleList] = useState([]);
@@ -18,15 +19,17 @@ function UserList() {
   }, []);
 
   return (
-    <ul>
-      <li>
-        <span>Order Date</span>
-        <span>Total Price</span>
-      </li>
-      {saleList.map((sale) => (
-        <SaleCard key={sale.id} sale={sale} />
-      ))}
-    </ul>
+    <section className="table">
+      <ul>
+        <li>
+          <span>Order Date</span>
+          <span>Total Points</span>
+        </li>
+        {saleList.map((sale) => (
+          <SaleCard key={sale.id} sale={sale} />
+          ))}
+      </ul>
+    </section>
   );
 }
 

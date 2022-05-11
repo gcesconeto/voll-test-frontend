@@ -1,9 +1,9 @@
 import RegisterForm from "../components/RegisterForm";
+import "../styles/Login.scss";
 
 function Register() {
   return (
-    <main>
-      <h1>Register</h1>
+    <main className="login-page">
       <RegisterForm />
     </main>
   );

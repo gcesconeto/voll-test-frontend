@@ -1,10 +1,11 @@
 import ProductForm from "../components/ProductForm";
 import Header from "../components/Header";
+import "../styles/CreateProduct.scss"
 
 function NewProduct() {
   return (
-    <main>
-      <Header title="Register new product" />
+    <main className="create-product-page">
+      <Header title="Create Product" />
       <ProductForm />
     </main>
   );

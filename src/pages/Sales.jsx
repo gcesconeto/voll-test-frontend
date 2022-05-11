@@ -1,10 +1,11 @@
 import SaleList from "../components/SaleList";
 import Header from "../components/Header";
+import "../styles/Page.scss";
 
 function Sales() {
   return (
-    <main>
-      <Header title="Your Orders" />
+    <main className="page">
+      <Header title="Orders" />
       <SaleList />
     </main>
   );
