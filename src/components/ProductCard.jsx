@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
-function ProductCard({ product }) {
-  const { name, price, description } = product;
+function ProductCard({ product, addToCart }) {
+  const { id, name, price, description } = product;
 
   const [quantity, setQuantity] = useState(0);
 
@@ -13,11 +13,10 @@ function ProductCard({ product }) {
     }
   };
 
-  const handleSubmit = useCallback(async (event) => {
-    event.preventDefault();
-    // Needs implementing
-  });
-
+  const handleAdd = () => {
+    addToCart(id, name, quantity, price);
+    setQuantity(0);
+  }
   return (
     <li>
       <span>{name}</span>
@@ -36,7 +35,7 @@ function ProductCard({ product }) {
       >
         +
       </button>
-      <button type="button" onClick={handleSubmit}>
+      <button type="button" disabled={quantity === 0}onClick={handleAdd}>
         Add to cart
       </button>
     </li>

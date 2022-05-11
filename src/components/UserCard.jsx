@@ -6,6 +6,7 @@ function UserCard({ user }) {
 
   const [localBalance, setLocalBalance] = useState(Number(balance));
   const [adjustment, setAdjustment] = useState(0);
+  const [deleted, setDeleted] = useState(false);
 
   const handleChange = ({ target: { value } }) => {
     setAdjustment(Number(value));
@@ -29,10 +30,11 @@ function UserCard({ user }) {
     } catch (error) {
       console.log("Unable to delete user")
     }
+    setDeleted(true);
   });
 
   return (
-    <li>
+    <li style={{ visibility: deleted ? 'hidden': 'visible'}}>
       <span>{id}</span>
       <span>{name}</span>
       <span>{email}</span>
