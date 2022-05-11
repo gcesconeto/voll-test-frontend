@@ -5,6 +5,7 @@ import NewProduct from "./pages/NewProduct";
 import Products from "./pages/Products";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+import AdminRoute from "./components/AdminRoute";
 import Users from "./pages/Users";
 import { AuthProvider } from "./context/Auth";
 import "./App.css";
@@ -19,8 +20,10 @@ function App() {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="products" element={<Products />} />
-          <Route path="product/create" element={<NewProduct />} />
-          <Route path="users" element={<Users />} />
+          <Route element={<AdminRoute />}>
+            <Route path="product/create" element={<NewProduct />} />
+            <Route path="users" element={<Users />} />
+          </Route>
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

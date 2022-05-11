@@ -4,13 +4,14 @@ import { useAuth } from "../context/Auth";
 import api from "../services/api";
 
 function UserHeader({ title }) {
-  const { setUser } = useAuth();
+  const { setUserRole } = useAuth();
 
   const [currentUser, setCurrentUser] = useState([]);
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem("@voll-token");
-    setUser(false);
+    localStorage.removeItem("@voll-role")
+    setUserRole(null);
   });
 
   useEffect(() => {

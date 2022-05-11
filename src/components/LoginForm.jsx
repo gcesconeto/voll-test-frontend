@@ -5,7 +5,7 @@ import api from "../services/api";
 
 function LoginForm() {
   const navigate = useNavigate();
-  const { setUser } = useAuth();
+  const { setUserRole } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ function LoginForm() {
       localStorage.setItem("@voll-token", data.token);
       localStorage.setItem("@voll-role", data.role);
       api.defaults.headers.common.authorization = data.token;
-      setUser(true);
+      setUserRole(data.role);
       navigate("/products");
     } catch (error) {
       setErrorMessage("Invalid Credentials");

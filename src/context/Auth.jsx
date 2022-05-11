@@ -12,29 +12,30 @@ const AuthContext = createContext({});
 export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => {
+  const [userRole, setUserRole] = useState(() => {
     const token = localStorage.getItem("@voll-token");
-
+    const role = localStorage.getItem("@voll-role");
     if (token) {
       api.defaults.headers.common.authorization = token;
-      return true;
     }
-
-    return false;
+    if (role) {
+      return role;
+    }
+    return null;
   });
 
   const signOut = useCallback(() => {
-    setUser(false);
+    setUserRole(false);
     localStorage.removeItem("@voll-token");
   });
 
   const value = useMemo(
     () => ({
       signOut,
-      user,
-      setUser,
+      userRole,
+      setUserRole,
     }),
-    [signOut, user, setUser]
+    [signOut, userRole, setUserRole]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

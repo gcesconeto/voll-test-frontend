@@ -3,9 +3,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/Auth";
 
 function PrivateRoute({ children }) {
-  const { user } = useAuth();
+  const { userRole } = useAuth();
 
-  if (!user) {
+  if (userRole === null) {
     return <Navigate to="/" />;
   }
 

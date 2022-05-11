@@ -3,11 +3,12 @@ import { useCallback } from "react";
 import { useAuth } from "../context/Auth";
 
 function AdminHeader({ title }) {
-  const { setUser } = useAuth();
+  const { setUserRole } = useAuth();
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem("@voll-token");
-    setUser(false);
+    localStorage.removeItem("@voll-role");
+    setUserRole(null);
   });
 
   return (
