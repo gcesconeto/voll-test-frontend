@@ -19,7 +19,7 @@ function UserCard({ user }) {
       setLocalBalance(data)
       setAdjustment(0)
     } catch (error) {
-      console.log("Unable to adjust balance")
+      global.alert("Unable to adjust balance")
     }
   });
 
@@ -27,11 +27,13 @@ function UserCard({ user }) {
     event.preventDefault();
     try {
       await api.delete("user/delete", { data: { email } });
+      setDeleted(true);
     } catch (error) {
-      console.log("Unable to delete user")
+      global.alert("Unable to delete user")
     }
-    setDeleted(true);
   });
+
+  const handleSignal = () => setAdjustment((old) => old * -1);
 
   return (
     <li style={{ visibility: deleted ? 'hidden': 'visible'}}>
@@ -45,6 +47,9 @@ function UserCard({ user }) {
         value={ adjustment }
         onChange={ handleChange }
       />
+      <button type="button" onClick={handleSignal}>
+        +/-
+      </button>
       <button type="button" onClick={handleAdjust}>
         Adjust
       </button>

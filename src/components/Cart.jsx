@@ -22,7 +22,7 @@ function Cart({cartList, removeFromCart}) {
       await api.post("sale/create", newSale);
       navigate("/sales");
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
       const { status } = error.response;
       if (status === 401) global.alert("Insufficient points!");
       }

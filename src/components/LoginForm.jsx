@@ -17,7 +17,6 @@ function LoginForm() {
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
     try {
-      console.log(api)
       const { data } = await api.post("http://localhost:3001/user/login", { email, password });
       localStorage.setItem("@voll-token", data.token);
       localStorage.setItem("@voll-role", data.role);
@@ -53,7 +52,7 @@ function LoginForm() {
       <p>{errorMessage}</p>
       <button type="submit">Log in</button>
       <button type="button">
-        <Link to="/register">Register</Link>
+        <Link to="/register">Create Account</Link>
       </button>
     </form>
   );
