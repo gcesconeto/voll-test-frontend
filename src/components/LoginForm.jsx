@@ -17,7 +17,7 @@ function LoginForm() {
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();
     try {
-      const { data } = await api.post("http://localhost:3001/user/login", { email, password });
+      const { data } = await api.post("user/login", { email, password });
       localStorage.setItem("@voll-token", data.token);
       localStorage.setItem("@voll-role", data.role);
       api.defaults.headers.common.authorization = data.token;
