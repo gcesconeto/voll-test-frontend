@@ -11,7 +11,7 @@ function UserHeader({ title }) {
 
   const handleLogout = useCallback(() => {
     localStorage.removeItem("@voll-token");
-    localStorage.removeItem("@voll-role")
+    localStorage.removeItem("@voll-role");
     setUserRole(null);
   });
 

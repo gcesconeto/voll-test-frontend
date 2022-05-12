@@ -6,7 +6,7 @@ import "../styles/List.scss";
 
 function SaleDetailsList() {
   const [sale, setSale] = useState({ products: [], saleDate: ''});
-  const { id } = useParams()
+  const { id } = useParams();
   useEffect(() => {
     const fetchSale = async () => {
       try {

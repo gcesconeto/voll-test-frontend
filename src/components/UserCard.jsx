@@ -19,7 +19,7 @@ function UserCard({ user }) {
       setLocalBalance(data)
       setAdjustment(0)
     } catch (error) {
-      global.alert("Unable to adjust balance")
+      global.alert("Unable to adjust balance");
     }
   });
 
@@ -29,7 +29,7 @@ function UserCard({ user }) {
       await api.delete("user/delete", { data: { email } });
       setDeleted(true);
     } catch (error) {
-      global.alert("Unable to delete user")
+      global.alert("Unable to delete user");
     }
   });
 

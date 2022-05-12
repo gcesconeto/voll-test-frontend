@@ -8,8 +8,7 @@ function ProductForm() {
 
   const handleName = useCallback(({ target }) => setName(target.value));
   const handlePrice = useCallback(({ target }) => setPrice(target.value));
-  const handleDescription = useCallback(({ target }) => setDescription(target.value)
-  );
+  const handleDescription = useCallback(({ target }) => setDescription(target.value));
 
   const handleSubmit = useCallback(async (event) => {
     event.preventDefault();

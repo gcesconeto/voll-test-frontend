@@ -1,6 +1,6 @@
 function ProductCard({ product, removeFromCart }) {
   const { productId, name, price, quantity } = product;
-  const handleRemove = () => removeFromCart(productId)
+  const handleRemove = () => removeFromCart(productId);
 
   return (
     <li>
